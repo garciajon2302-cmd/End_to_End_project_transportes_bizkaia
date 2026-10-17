@@ -8,7 +8,9 @@ except ImportError:
     from carga import cargar_datos
 import time
 
+# Función principal
 def main():
+    #Inicializar tiempo de ejecución
     inicio = time.time()
     df_extraido = extraer_datos()
     df_limpio = limpiar_datos(df_extraido)
@@ -19,7 +21,8 @@ def main():
     df_cargado = cargar_datos(df_limpio)
     duracion = time.time() - inicio
     print(f"Duración: {duracion:.2f} segundos")
-    return df_limpio
+    
+    return df_cargado
 
 
 if __name__ == "__main__":

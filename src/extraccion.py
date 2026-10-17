@@ -33,7 +33,8 @@ def extraer_datos(base_url=None):
 
     if not base_url:
         raise ValueError("Configura la variable de entorno URL.")
-
+    
+    #Inicializar variables
     dataframes = []
     oks = 0
     nooks = 0

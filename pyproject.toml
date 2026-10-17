@@ -7,7 +7,9 @@ authors = [
     { name = "Jonathan Garcia", email = "garcia.jon2302@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "psycopg[binary]>=3.2,<4",
+]
 
 [project.scripts]
 end-to-end-project = "end_to_end_project:main"
