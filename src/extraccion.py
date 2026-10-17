@@ -1,8 +1,7 @@
 import os
 import re
-from io import BytesIO
+from io import BytesIO, StringIO
 from urllib.parse import unquote, urlparse
-
 import pandas as pd
 import requests
 from dotenv import load_dotenv
@@ -122,3 +121,94 @@ def extraer_datos(base_url=None):
     print(f"Porcentaje de recursos correctos: {porcentaje:.2f}%")
 
     return df_total
+
+def extraer_tarifas_barik():
+    urls = {
+        2025: (
+            "https://web.archive.org/web/20250428201536/"
+            "https://www.ctb.eus/es/tarifas-barik"
+        ),
+        2024: (
+            "https://web.archive.org/web/20240609064912/"
+            "http://www.ctb.eus/es/tarifas-barik"
+        ),
+        2023: (
+            "https://web.archive.org/web/20230326003158/"
+            "https://www.ctb.eus/es/tarifas-barik"
+        ),
+        2022: (
+            "https://web.archive.org/web/20220702090908/"
+            "https://www.ctb.eus/es/tarifas-barik"
+        ),
+    }
+
+    zonas_validas = {
+        "Bilbobus",
+        "Bizkaibus",
+        "EuskoTren Línea General",
+        "EuskoTren Atxuri",
+        "EuskoTren Txorierri",
+        "Metro Bilbao",
+        "Renfe",
+    }
+
+    sesiones = requests.Session()
+    sesiones.headers.update({"User-Agent": "Mozilla/5.0"})
+
+    df = []
+
+    for anio, url in urls.items():
+        print(f"Descargando tarifas de {anio}...")
+
+        try:
+            respuesta = sesiones.get(url, timeout=30)
+            respuesta.raise_for_status()
+
+            # Extraer las tablas HTML
+            tablas_html = pd.read_html(
+                StringIO(respuesta.text),
+                attrs={"class": "tarifas"}
+            )
+
+            # Alternativa si no se encuentran suficientes tablas
+            if len(tablas_html) < 3:
+                tablas_html = pd.read_html(
+                    StringIO(respuesta.text)
+                )
+
+            # Identificar la tabla de tarifas
+            candidatos = []
+
+            for tabla in tablas_html:
+                if tabla.shape[1] == 6:
+                    primera_columna = (
+                        tabla.iloc[:, 0]
+                        .astype(str)
+                        .str.strip()
+                    )
+
+                    if primera_columna.isin(
+                        zonas_validas
+                    ).any():
+                        candidatos.append(tabla)
+
+            if not candidatos:
+                raise ValueError(
+                    "No se encontró la tabla de tarifas "
+                    "de seis columnas."
+                )
+
+            # Guardar la tabla original junto con su año
+            df.append((anio, candidatos[0].copy()))
+
+            print(
+                f"  OK: tabla de {anio} extraída."
+            )
+
+        except Exception as error:
+            raise RuntimeError(
+                f"Error extrayendo las tarifas "
+                f"de {anio}: {error}"
+            ) from error
+
+    return df
