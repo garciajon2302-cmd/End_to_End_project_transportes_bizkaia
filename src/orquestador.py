@@ -35,8 +35,10 @@ def main():
     df_cargado_pasajeros = cargar_datos_pasajeros(df_limpio_pasajeros)
     df_cargado_tarifas = cargar_tarifas_viajes(df_limpio_tarifas)
 
-    print(f"Proceso de CARGA de datos terminado. En {time.time() - limpieza:.2f} segundos")
+    carga = time.time() - limpieza
+    print(f"Proceso de CARGA de datos terminado. En {carga:.2f} segundos")
 
+    #Finalización de la ETL
     duracion = time.time() - inicio
     print(f"Duración del ETL: {duracion:.2f} segundos")
 
