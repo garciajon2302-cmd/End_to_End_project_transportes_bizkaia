@@ -1,5 +1,17 @@
 # Proyecto end-to-end de transporte en Bizkaia
 
+### Resumen
+
+![Dashboard de resumen](Fotos/Foto%20resumen.png)
+
+### Origen - Destino
+
+![Dashboard de origen y destino](Fotos/Foto%20origen-destino.png)
+
+### Análisis
+
+![Dashboard de análisis](Fotos/Foto%20analisis.png)
+
 Proyecto de extracción, transformación y carga de datos de transporte de Bizkaia. Los datos se almacenan en PostgreSQL y se analizan con Power BI.
 
 ## Flujo del proyecto
