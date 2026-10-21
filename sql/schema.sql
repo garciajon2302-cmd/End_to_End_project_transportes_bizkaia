@@ -8,20 +8,6 @@ CREATE TABLE IF NOT EXISTS trans_viajes_bizkaia (
     PRIMARY KEY (fecha_hora, zona_entrada, zona_salida, Modo, pasajeros)
 );
 
-SELECT * FROM trans_viajes_bizkaia;
-
---Fechas de extraccion de datos de tarifas
-SELECT 
-	MIN(fecha_hora),--2022
-	MAX(fecha_hora) --2025
-FROM trans_viajes_bizkaia;
-
---Contar numeros de registros de la tabla y que coincidan con los de la carga en la terminal
-SELECT 
-	COUNT(*)
-FROM trans_viajes_bizkaia;
-
-
 --Tarifas tabla
 CREATE TABLE IF NOT EXISTS tarifas_viajes (
     Año SMALLINT,
@@ -33,4 +19,3 @@ CREATE TABLE IF NOT EXISTS tarifas_viajes (
     zona_5 FLOAT
 );
 
-SELECT * FROM tarifas_viajes;
