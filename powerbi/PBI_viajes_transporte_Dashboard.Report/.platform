@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "PBI_viajes_transporte_Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "291b175f-d40b-04f3-fd25-4a6f12718f0b"
+  }
+}

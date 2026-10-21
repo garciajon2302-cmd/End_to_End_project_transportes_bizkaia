@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "a7884a9f6e96fa260cb4",
+  "position": {
+    "x": 25,
+    "y": 162,
+    "z": 6000,
+    "height": 296,
+    "width": 46,
+    "tabOrder": 6000
+  },
+  "visualGroup": {
+    "displayName": "Sidebar rail",
+    "groupMode": "ScaleMode"
+  },
+  "isHidden": true
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Sidebar expanded (Resumen)",
+  "name": "85b36ea102f94ee69176",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "afde97772b206afe89b1",
+      "527755f0071c8b499a8c",
+      "f08a06ee3c01fde385a3",
+      "9e3db6686243fc758c71",
+      "138102affccc931d880a",
+      "9a452e39336fa03930cc",
+      "cf280bffe18306103e81"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.0",
+    "activeSection": "4b73deaf930a6b428996",
+    "sections": {
+      "4b73deaf930a6b428996": {
+        "visualContainers": {
+          "f08a06ee3c01fde385a3": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "9e3db6686243fc758c71": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "9a452e39336fa03930cc": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "cf280bffe18306103e81": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "afde97772b206afe89b1": {
+            "isHidden": true
+          },
+          "527755f0071c8b499a8c": {
+            "isHidden": false
+          }
+        }
+      }
+    }
+  }
+}

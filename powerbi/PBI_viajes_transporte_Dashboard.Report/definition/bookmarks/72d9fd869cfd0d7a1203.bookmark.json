@@ -1,0 +1,69 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Sidebar collapsed (Análisis)",
+  "name": "72d9fd869cfd0d7a1203",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "a7884a9f6e96fa260cb4",
+      "3890557f53e0549e194b",
+      "7f7d55c045105057edb6",
+      "daad861734a2a8651504",
+      "a0339c47d8571e9f9d33",
+      "af5969b38229a173dab6",
+      "08cc4fb75abbcc3f264f"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.0",
+    "activeSection": "813cc6c46ca9b3b07d29",
+    "sections": {
+      "813cc6c46ca9b3b07d29": {
+        "visualContainers": {
+          "7f7d55c045105057edb6": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "daad861734a2a8651504": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "af5969b38229a173dab6": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "08cc4fb75abbcc3f264f": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "a7884a9f6e96fa260cb4": {
+            "isHidden": false
+          },
+          "3890557f53e0549e194b": {
+            "isHidden": true
+          }
+        }
+      }
+    }
+  }
+}

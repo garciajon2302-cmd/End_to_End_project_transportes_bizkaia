@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Go to Patrones temporales",
+  "name": "f678c11dd9ae6aa476a5",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.0",
+    "activeSection": "8056da5d1af4271731b8",
+    "sections": {}
+  }
+}

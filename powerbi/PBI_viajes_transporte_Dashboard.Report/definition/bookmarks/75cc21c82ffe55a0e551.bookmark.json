@@ -1,0 +1,69 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Sidebar collapsed (Patrones temporales)",
+  "name": "75cc21c82ffe55a0e551",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "c0f86e9ab8119d5474fd",
+      "6b7b334bda7ab00085fc",
+      "619539d6d17bb78f98ed",
+      "63a0dcd33b0e5cbced34",
+      "93e7fb257ff396faf852",
+      "6919f45fca7d6be56d89",
+      "236aa825dc31a342106e"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.0",
+    "activeSection": "8056da5d1af4271731b8",
+    "sections": {
+      "8056da5d1af4271731b8": {
+        "visualContainers": {
+          "619539d6d17bb78f98ed": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "63a0dcd33b0e5cbced34": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "6919f45fca7d6be56d89": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "236aa825dc31a342106e": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "c0f86e9ab8119d5474fd": {
+            "isHidden": false
+          },
+          "6b7b334bda7ab00085fc": {
+            "isHidden": true
+          }
+        }
+      }
+    }
+  }
+}

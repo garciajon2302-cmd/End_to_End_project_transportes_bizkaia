@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "527755f0071c8b499a8c",
+  "position": {
+    "x": 14,
+    "y": 162,
+    "z": 18000,
+    "height": 296,
+    "width": 292,
+    "tabOrder": 18000
+  },
+  "visualGroup": {
+    "displayName": "Sidebar expanded",
+    "groupMode": "ScaleMode"
+  }
+}

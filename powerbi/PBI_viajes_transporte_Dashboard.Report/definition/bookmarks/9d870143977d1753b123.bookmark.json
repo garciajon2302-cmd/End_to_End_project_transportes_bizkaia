@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Go to Análisis",
+  "name": "9d870143977d1753b123",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.0",
+    "activeSection": "813cc6c46ca9b3b07d29",
+    "sections": {}
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY26SU05",
+      "reportVersionAtImport": {
+        "visual": "2.9.0",
+        "report": "3.3.0",
+        "page": "2.3.1"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "ChartCraft_TealCoral.json8395568963805646.json",
+      "reportVersionAtImport": {
+        "visual": "2.14.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY26SU05",
+          "path": "BaseThemes/CY26SU05.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "cc_bg-09_3efe4340.png",
+          "path": "cc_bg-09_3efe4340.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_bg-10_f2188fb6.png",
+          "path": "cc_bg-10_f2188fb6.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_bg-12_27b785d5.png",
+          "path": "cc_bg-12_27b785d5.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_hb-04_6403950c.png",
+          "path": "cc_hb-04_6403950c.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_icon_chart_2f7c56f2.png",
+          "path": "cc_icon_chart_2f7c56f2.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_icon_chart_d0d1c34e.png",
+          "path": "cc_icon_chart_d0d1c34e.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_icon_doc_2b3db27a.png",
+          "path": "cc_icon_doc_2b3db27a.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_icon_doc_b070f26a.png",
+          "path": "cc_icon_doc_b070f26a.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_icon_home_ae5279af.png",
+          "path": "cc_icon_home_ae5279af.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_icon_home_e43b5f14.png",
+          "path": "cc_icon_home_e43b5f14.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_icon_sidebar-collapse_c7791dca.png",
+          "path": "cc_icon_sidebar-collapse_c7791dca.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_icon_sidebar-expand_c3372795.png",
+          "path": "cc_icon_sidebar-expand_c3372795.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_icon_truck_71ed9631.png",
+          "path": "cc_icon_truck_71ed9631.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_icon_user_867b1951.png",
+          "path": "cc_icon_user_867b1951.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_sb-07_b40e7512.png",
+          "path": "cc_sb-07_b40e7512.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_sb-07_cfa89cde.png",
+          "path": "cc_sb-07_cfa89cde.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_sb-14_4c3e0be9.png",
+          "path": "cc_sb-14_4c3e0be9.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_sb-14_799b993c.png",
+          "path": "cc_sb-14_799b993c.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_sb-16_0b3de9f8.png",
+          "path": "cc_sb-16_0b3de9f8.png",
+          "type": "Image"
+        },
+        {
+          "name": "cc_sb-16_9766ef89.png",
+          "path": "cc_sb-16_9766ef89.png",
+          "type": "Image"
+        },
+        {
+          "name": "ChartCraft_TealCoral.json8395568963805646.json",
+          "path": "ChartCraft_TealCoral.json8395568963805646.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "Crecimiento6406047862397872.png",
+          "path": "Crecimiento6406047862397872.png",
+          "type": "Image"
+        },
+        {
+          "name": "Dinero35255318273113334.png",
+          "path": "Dinero35255318273113334.png",
+          "type": "Image"
+        },
+        {
+          "name": "Dinero6572328199138288.png",
+          "path": "Dinero6572328199138288.png",
+          "type": "Image"
+        },
+        {
+          "name": "Pasajeros3242927130678206.png",
+          "path": "Pasajeros3242927130678206.png",
+          "type": "Image"
+        },
+        {
+          "name": "Pasajeros6059035361435129.png",
+          "path": "Pasajeros6059035361435129.png",
+          "type": "Image"
+        },
+        {
+          "name": "Transporte_Metro729967985463529.png",
+          "path": "Transporte_Metro729967985463529.png",
+          "type": "Image"
+        },
+        {
+          "name": "Transporte_Metro8321152927207668.png",
+          "path": "Transporte_Metro8321152927207668.png",
+          "type": "Image"
+        },
+        {
+          "name": "zonas16801112432105214.jpg",
+          "path": "zonas16801112432105214.jpg",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true,
+    "queryLimitOption": "None",
+    "customMemoryLimit": "1048576",
+    "customTimeoutLimit": "225",
+    "locale": "es-EC"
+  }
+}

@@ -1,0 +1,120 @@
+DEFINE
+    MEASURE dim_facts[Total pasajeros] =
+        SUM(dim_facts[pasajeros])
+
+    MEASURE dim_facts[Ingresos estimados] =
+        SUMX(
+            dim_facts,
+            dim_facts[pasajeros]
+                * dim_facts[precio_billete]
+        )
+
+    MEASURE dim_facts[Precio medio] =
+        DIVIDE(
+            [Ingresos estimados],
+            [Total pasajeros],
+            0
+        )
+
+    MEASURE dim_facts[Número de registros] =
+        COUNTROWS(dim_facts)
+
+    MEASURE dim_facts[Pasajeros año anterior] =
+        CALCULATE(
+            [Total pasajeros],
+            DATEADD(dim_fecha[Date], -1, YEAR)
+        )
+
+    MEASURE dim_facts[Variación pasajeros %] =
+        DIVIDE(
+            [Total pasajeros] - [Pasajeros año anterior],
+            [Pasajeros año anterior],
+            0
+        )
+
+    MEASURE dim_facts[Ingresos año anterior] =
+        CALCULATE(
+            [Ingresos estimados],
+            DATEADD(dim_fecha[Date], -1, YEAR)
+        )
+
+    MEASURE dim_facts[Variación ingresos %] =
+        DIVIDE(
+            [Ingresos estimados] - [Ingresos año anterior],
+            [Ingresos año anterior],
+            0
+        )
+
+    MEASURE dim_facts[Pasajeros mes anterior] =
+        CALCULATE(
+            [Total pasajeros],
+            DATEADD(dim_fecha[Date], -1, MONTH)
+        )
+
+    MEASURE dim_facts[Variación pasajeros mensual %] =
+        DIVIDE(
+            [Total pasajeros] - [Pasajeros mes anterior],
+            [Pasajeros mes anterior],
+            0
+        )
+
+    MEASURE dim_facts[Cuota pasajeros %] =
+        DIVIDE(
+            [Total pasajeros],
+            CALCULATE(
+                [Total pasajeros],
+                REMOVEFILTERS(dim_facts[modo])
+            ),
+            0
+        )
+
+    MEASURE dim_facts[Cuota ingresos %] =
+        DIVIDE(
+            [Ingresos estimados],
+            CALCULATE(
+                [Ingresos estimados],
+                REMOVEFILTERS(dim_facts[modo])
+            ),
+            0
+        )
+
+    MEASURE dim_facts[Precio máximo] =
+        MAX(dim_facts[precio_billete])
+
+    MEASURE dim_facts[Precio mínimo] =
+        MIN(dim_facts[precio_billete])
+
+    MEASURE dim_facts[Pasajeros acumulados año] =
+        TOTALYTD(
+            [Total pasajeros],
+            dim_fecha[Date]
+        )
+
+    MEASURE dim_facts[Ingresos acumulados año] =
+        TOTALYTD(
+            [Ingresos estimados],
+            dim_fecha[Date]
+        )
+
+EVALUATE
+    SUMMARIZECOLUMNS(
+        dim_fecha[Año],
+        "Total pasajeros", [Total pasajeros],
+        "Ingresos estimados", [Ingresos estimados],
+        "Precio medio", [Precio medio],
+        "Número de registros", [Número de registros],
+        "Pasajeros año anterior", [Pasajeros año anterior],
+        "Variación pasajeros %", [Variación pasajeros %],
+        "Ingresos año anterior", [Ingresos año anterior],
+        "Variación ingresos %", [Variación ingresos %],
+        "Pasajeros mes anterior", [Pasajeros mes anterior],
+        "Variación pasajeros mensual %", [Variación pasajeros mensual %],
+        "Cuota pasajeros %", [Cuota pasajeros %],
+        "Cuota ingresos %", [Cuota ingresos %],
+        "Precio máximo", [Precio máximo],
+        "Precio mínimo", [Precio mínimo],
+        "Pasajeros acumulados año", [Pasajeros acumulados año],
+        "Ingresos acumulados año", [Ingresos acumulados año]
+    )
+
+ORDER BY dim_fecha[Año]

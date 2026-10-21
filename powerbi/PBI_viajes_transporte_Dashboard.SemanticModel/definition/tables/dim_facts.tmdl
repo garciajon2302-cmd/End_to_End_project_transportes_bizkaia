@@ -1,0 +1,155 @@
+table dim_facts
+	lineageTag: 63456427-fa9d-4faf-9206-ff343d4a3804
+
+	column zona_entrada
+		dataType: int64
+		formatString: 0
+		lineageTag: f4161d2d-6274-48ba-a3ab-7062804b624b
+		summarizeBy: sum
+		sourceColumn: zona_entrada
+
+		annotation SummarizationSetBy = Automatic
+
+	column zona_salida
+		dataType: int64
+		formatString: 0
+		lineageTag: 1626844e-2528-428a-85de-33e549e222e4
+		summarizeBy: sum
+		sourceColumn: zona_salida
+
+		annotation SummarizationSetBy = Automatic
+
+	column modo
+		dataType: string
+		lineageTag: d9f8718c-5481-483c-81e6-25a422fe9710
+		summarizeBy: none
+		sourceColumn: modo
+
+		annotation SummarizationSetBy = Automatic
+
+	column pasajeros
+		dataType: int64
+		formatString: 0
+		lineageTag: a887530b-44a9-4fbc-ad09-0c0074ba6b19
+		summarizeBy: sum
+		sourceColumn: pasajeros
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_hora
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a1f3f1b1-4187-4704-bdc0-9e8774c3c121
+		summarizeBy: none
+		sourceColumn: fecha_hora
+
+		variation Variation
+			isDefault
+			relationship: be99e4fb-c698-40c1-8051-5c3cc382edd0
+			defaultHierarchy: LocalDateTable_5a27e00a-d5bb-4b41-adb6-2c22bb4599b2.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column precio_billete
+		dataType: double
+		formatString: €#,##0.00
+		lineageTag: cdcef9cd-36e4-48ab-9469-e6fd307296a5
+		summarizeBy: none
+		sourceColumn: precio_billete
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Fecha =
+			
+			DATE(
+			    YEAR(Dim_facts[fecha_hora]),
+			    MONTH(Dim_facts[fecha_hora]),
+			    DAY(Dim_facts[fecha_hora])
+			)
+		formatString: General Date
+		lineageTag: 3c1b8018-131a-4587-b1c0-035fd0e56cf0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hora =
+			
+			TIME(
+			    HOUR(Dim_facts[fecha_hora]),
+			    0,
+			    0
+			)
+		formatString: Short Time
+		lineageTag: 5610cc07-a7b0-462a-9e0d-0825be3dcd86
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 5e9c51e6-ac99-44fb-9621-7152aea110fb
+			defaultHierarchy: LocalDateTable_bec7fc5b-0656-442c-ab3c-a1d25b78d7f6.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"dim_facts","TableItemName":"Hora (ubicaciones)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column Zonas = dim_facts[zona_entrada] & " -> " & dim_facts[zona_salida]
+		dataType: string
+		lineageTag: 06a466f2-78cb-43e0-ad22-33cf64fae7d5
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hora (ubicaciones)' =
+			IF(
+				ISBLANK('dim_facts'[Hora]),
+				BLANK(),
+				(INT(('dim_facts'[Hora] * 24) / 2) * 2) / 24
+			)
+		dataType: dateTime
+		formatString: Short Time
+		lineageTag: 309b5925-6c9a-472c-86bd-be62186bce5e
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "dim_facts"
+				          }
+				        },
+				        "Property": "Hora"
+				      }
+				    }
+				  ],
+				  "binningMetadata": {
+				    "binSize": {
+				      "value": 2.0,
+				      "unit": 9
+				    }
+				  }
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"d","Entity":"dim_facts"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Hora"}}],"BinItem":{"Expression":{"Floor":{"Expression":{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Hora"}},"Size":2.0,"TimeUnit":7}}}}
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_facts = m
+		mode: import
+		source =
+				let
+				    Origen = Value.NativeQuery(PostgreSQL.Database("localhost:5432", "transportes_bizkaia"), "SELECT#(lf)    pas.*,#(lf)    CASE GREATEST(pas.zona_entrada, pas.zona_salida)#(lf)        WHEN 1 THEN tar.zona_1#(lf)        WHEN 2 THEN tar.zona_2#(lf)        WHEN 3 THEN tar.zona_3#(lf)        WHEN 4 THEN tar.zona_4#(lf)        WHEN 5 THEN tar.zona_5#(lf)    END AS precio_billete#(lf)FROM trans_viajes_bizkaia pas#(lf)JOIN tarifas_viajes tar#(lf)    ON tar.año = EXTRACT(YEAR FROM pas.fecha_hora)::integer#(lf)    AND tar.modo = pas.modo", null, [EnableFolding=true])
+				in
+				    Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

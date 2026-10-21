@@ -16,6 +16,11 @@ def limpiar_datos_pasajeros(df_total):
             f"{', '.join(sorted(faltantes))}"
         )
 
+    df["Modo"] = df["Modo"].replace({
+            "Autobus Interurbano": "Bizkaibus",
+            "Autobus Urbano": "Bilbobus",
+        })
+
     df["fecha_hora"] = pd.to_datetime(
         df["dia"].astype(str) + "/" +
         df["mes_anio"].astype(str) + " " +

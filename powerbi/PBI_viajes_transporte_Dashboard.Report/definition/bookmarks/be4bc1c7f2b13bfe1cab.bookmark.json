@@ -1,0 +1,69 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Sidebar collapsed (Origen - Destino)",
+  "name": "be4bc1c7f2b13bfe1cab",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "7ecfc50fb8c5a00b94b1",
+      "11785349701ad563b0b1",
+      "51b9ca2b56e4e4646aec",
+      "c6a8689a182b3ef7d7fd",
+      "53e8ce5a00670c91b6f3",
+      "d2f83cf7bdac160b3148",
+      "1f46db49a460bdeb84fc"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.0",
+    "activeSection": "3e6cac0c6319ebee692c",
+    "sections": {
+      "3e6cac0c6319ebee692c": {
+        "visualContainers": {
+          "51b9ca2b56e4e4646aec": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "c6a8689a182b3ef7d7fd": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "d2f83cf7bdac160b3148": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "1f46db49a460bdeb84fc": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "7ecfc50fb8c5a00b94b1": {
+            "isHidden": false
+          },
+          "11785349701ad563b0b1": {
+            "isHidden": true
+          }
+        }
+      }
+    }
+  }
+}

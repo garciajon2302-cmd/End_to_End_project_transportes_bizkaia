@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "PBI_viajes_transporte"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f29e10e2-d4f3-49c8-ab43-d8a86436f356"
+  }
+}

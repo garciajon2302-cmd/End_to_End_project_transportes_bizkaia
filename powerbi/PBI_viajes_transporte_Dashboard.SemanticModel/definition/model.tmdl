@@ -1,0 +1,26 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-ES
+	valueFilterBehavior: independent
+	dataAccessOptions
+		fastCombine
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dim_facts","Medidas"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_fecha
+ref table dim_facts
+ref table Medidas
+ref table DateTableTemplate_b0d69b9a-56fb-44a8-8448-068a392fc16b
+ref table LocalDateTable_5a27e00a-d5bb-4b41-adb6-2c22bb4599b2
+ref table LocalDateTable_8489fc3d-e49e-45b3-80b0-d45369394bae
+ref table LocalDateTable_bec7fc5b-0656-442c-ab3c-a1d25b78d7f6
+
+ref cultureInfo es-ES
+

@@ -1,0 +1,207 @@
+table Medidas
+	lineageTag: 292fff57-3d9a-45ea-a467-6eb188f46903
+
+	measure 'Ingresos estimados' = ```
+			
+			        SUMX(
+			            dim_facts,
+			            dim_facts[pasajeros]
+			                * dim_facts[precio_billete]
+			        )
+			```
+		formatString: €#,##0.00
+		displayFolder: Ingresos
+		lineageTag: 5b2ddde1-c90d-401e-84c9-bbaf2041e196
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ingresos año anterior' = ```
+			
+			        CALCULATE(
+			            [Ingresos estimados],
+			            DATEADD(dim_fecha[Date], -1, YEAR)
+			        )
+			```
+		displayFolder: Ingresos
+		lineageTag: 4a7009bc-bc1f-4d00-80b4-bb0a434575b0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ingresos acumulados año' = ```
+			
+			        TOTALYTD(
+			            [Ingresos estimados],
+			            dim_fecha[Date]
+			        )
+			```
+		displayFolder: Ingresos
+		lineageTag: 5aa4da47-84c9-4287-b2f6-04d74b5d5b28
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cuota ingresos %' = ```
+			
+			        DIVIDE(
+			            [Ingresos estimados],
+			            CALCULATE(
+			                [Ingresos estimados],
+			                REMOVEFILTERS(dim_facts[modo])
+			            ),
+			            0
+			        )
+			```
+		displayFolder: Pasajeros
+		lineageTag: 28a5a963-07ad-4eaa-b81b-5d304754fca7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cuota pasajeros %' = ```
+			
+			        DIVIDE(
+			            [Total pasajeros],
+			            CALCULATE(
+			                [Total pasajeros],
+			                REMOVEFILTERS(dim_facts[modo])
+			            ),
+			            0
+			        )
+			```
+		displayFolder: Pasajeros
+		lineageTag: 798b1450-a70e-4007-a556-e5d4c2525dcc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Pasajeros acumulados año' = ```
+			
+			        TOTALYTD(
+			            [Total pasajeros],
+			            dim_fecha[Date]
+			        )
+			```
+		formatString: 0
+		displayFolder: Pasajeros
+		lineageTag: 45c05e71-1c64-4972-99fb-5ef72a76e004
+
+	measure 'Pasajeros año anterior' = ```
+			
+			        CALCULATE(
+			            [Total pasajeros],
+			            DATEADD(dim_fecha[Date], -1, YEAR)
+			        )
+			```
+		formatString: 0
+		displayFolder: Pasajeros
+		lineageTag: 48c252a9-1846-441b-9496-10e201594e10
+
+	measure 'Pasajeros mes anterior' = ```
+			
+			        CALCULATE(
+			            [Total pasajeros],
+			            DATEADD(dim_fecha[Date], -1, MONTH)
+			        )
+			```
+		formatString: 0
+		displayFolder: Pasajeros
+		lineageTag: 7cb66dd4-9bb5-42e7-b7a8-db79112ce1a2
+
+	measure 'Precio medio' = ```
+			
+			        DIVIDE(
+			            [Ingresos estimados],
+			            [Total pasajeros],
+			            0
+			        )
+			```
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		displayFolder: Precios y variacion
+		lineageTag: e01295df-b8f8-41a1-8bf2-c14ec33169a4
+
+	measure 'Precio máximo' = ```
+			
+			        MAX(dim_facts[precio_billete])
+			```
+		displayFolder: Precios y variacion
+		lineageTag: d70b1a23-13fc-48e8-9a5d-426f97c92f16
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Precio mínimo' = ```
+			
+			        MIN(dim_facts[precio_billete])
+			```
+		displayFolder: Precios y variacion
+		lineageTag: 8eefef8c-79f1-4f2b-aace-b93e77918fc6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total pasajeros' = ```
+			
+			        SUM(dim_facts[pasajeros])
+			```
+		displayFolder: Pasajeros
+		lineageTag: 18247384-5f7a-434a-b29b-19eb6b0d6b86
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Variación ingresos %' = ```
+			
+			        DIVIDE(
+			            [Ingresos estimados] - [Ingresos año anterior],
+			            [Ingresos año anterior]
+			        )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Precios y variacion
+		lineageTag: 38c043bb-c1df-4a8f-95d5-673fb56e96ee
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Variación pasajeros %' = ```
+			
+			        DIVIDE(
+			            [Total pasajeros] - [Pasajeros año anterior],
+			            [Pasajeros año anterior]
+			        )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Precios y variacion
+		lineageTag: 6ffb47ef-2da0-44af-939e-810b08f56cb6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Variación pasajeros mensual %' = ```
+			
+			        DIVIDE(
+			            [Total pasajeros] - [Pasajeros mes anterior],
+			            [Pasajeros mes anterior]
+			        )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Precios y variacion
+		lineageTag: 7e80382e-e5b8-41b0-8e7f-48c7c7de2251
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Modo más utilizado' = ```
+			
+			        VAR Modos = ADDCOLUMNS(VALUES(dim_facts[modo]), "__Pasajeros", [Total pasajeros])
+			        VAR ModoTop = TOPN(1, Modos, [__Pasajeros], DESC, dim_facts[modo], ASC)
+			        RETURN CONCATENATEX(ModoTop, dim_facts[modo], ", ")
+			```
+		displayFolder: Pasajeros
+		lineageTag: 5ae99bc8-351e-45d6-ad06-5ddb4a3f30a5
+
+	partition Medidas = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
