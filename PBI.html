@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard de Viajes y Transporte</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f8;
+    }
+
+    .dashboard {
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .report-container {
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        overflow: hidden;
+        background: #ffffff;
+    }
+
+    .report-container iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    /* Pantallas Full HD y formato 16:9 */
+    @media (min-width: 1200px) {
+        .dashboard {
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+        }
+    }
+</style>
+
+
+</head>
+
+<body>
+<main class="dashboard">
+<section class="report-container">
+<iframe
+title="PBI_viajes_transporte_Dashboard"
+src="https://app.fabric.microsoft.com/reportEmbed?reportId=d7343e03-0f2d-4627-8fb0-033add6d6952&autoAuth=true&ctid=032115c7-35fe-4637-b2c3-d0a42906ba7b"
+allowfullscreen="true">
+</iframe>
+</section>
+</main>
+</body>
+</html>
