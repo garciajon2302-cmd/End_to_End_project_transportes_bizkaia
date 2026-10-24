@@ -18,7 +18,7 @@ Proyecto de extracción, transformación y carga de datos de transporte de Bizka
 
 ```mermaid
 flowchart LR
-    A[API de CTB<br/>Datos de pasajeros] --> C[Limpieza y transformación]
+    A[API de CTB<br/>Datos de pasajeros<br/>50 CSV] --> C[Limpieza y transformación]
     B[Wayback Machine<br/>Scraping de tarifas Barik] --> C
     C --> D[Carga en PostgreSQL]
     D --> E[Consultas SQL]
@@ -26,7 +26,7 @@ flowchart LR
 ```
 
 1. **Extracción de pasajeros:** obtiene datos de la API de CTB.
-2. **Extracción de tarifas:** recupera mediante web scraping páginas históricas de tarifas Barik archivadas en [Internet Archive Wayback Machine](https://web.archive.org/).
+2. **Extracción de tarifas:** obtiene mediante web scraping páginas históricas de tarifas Barik archivadas en [Internet Archive Wayback Machine](https://web.archive.org/).
 3. **Limpieza:** transforma los datos para prepararlos para la carga.
 4. **Carga:** almacena pasajeros y tarifas en PostgreSQL.
 5. **Análisis:** consulta los datos con SQL y los presenta en Power BI.
